@@ -4131,8 +4131,8 @@ img {
   font-size: 20px;
 }
 
-#game {
-  min-height: 100vh;
+#grid {
+  height: calc(100vh - 164px);
 }
 
 .p-name {
@@ -4193,7 +4193,7 @@ img {
 }
 
 .row {
-  flex: 1;
+  height: 10%;
 }
 
 .square {

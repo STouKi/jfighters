@@ -43,7 +43,7 @@ class Grid
 
     generate()
     {
-        let html = '';
+        let html = '<div id="grid">';
 
         $.each(this.rows, function() {
             html += '<div class="row row-'+this.index+'">';
@@ -52,11 +52,11 @@ class Grid
                 html += '<div class="col d-flex justify-content-center align-items-center square square-'+this.index+' '+this.type+'">';
 
                 if (typeof this.character != 'undefined') {
-                    html += '<img src="images/characters/'+this.character.color+'.svg" width="50px" />';
+                    html += '<img src="images/characters/'+this.character.color+'.svg" width="40px" />';
                 }
 
                 if (typeof this.weapon != 'undefined') {
-                    html += '<img src="images/weapons/'+this.weapon.name+'.svg" width="50px" />';
+                    html += '<img src="images/weapons/'+this.weapon.name+'.svg" width="40px" />';
                 }
 
                 html += '</div>';
@@ -64,6 +64,8 @@ class Grid
 
             html += '</div>';
         });
+
+        html += '</div>';
 
         $('#game').append(html);
     }

@@ -99,10 +99,10 @@ img
     font-size: 20px;
 }
 
-// GAME //
-#game
+// GRID //
+#grid
 {
-    min-height: 100vh;
+    height: calc(100vh - 164px);
 }
 
 // GAMEBAR
@@ -179,7 +179,7 @@ img
 
 .row
 {
-    flex: 1;
+    height: 10%;
 }
 
 // Game

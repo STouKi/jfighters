@@ -13,32 +13,30 @@ class Character
 
     chooseAction(grid)
     {
-        let previousRowIndex = this.row.index - 1;
-        let previousColIndex = this.col.index - 1;
+        const coord = getCoord(1);
 
-        let rowIndex = this.row.index;
-        let colIndex = this.col.index;
+        let upCol;
+        let rightCol;
+        let downCol;
+        let leftCol;
 
-        let nextRowIndex = this.row.index + 1;
-        let nextColIndex = this.col.index + 1;
-
-        if (previousRowIndex >= 0) {
-            let upCol = grid.rows[previousRowIndex].cols[colIndex];
+        if (coord[previousRowIndex] >= 0) {
+            upCol = grid.rows[coord[previousRowIndex]].cols[coord[colIndex]];
         }
 
-        if (nextColIndex <= 9) {
-            let rightCol = grid.rows[rowIndex].cols[nextColIndex];
+        if (coord[nextColIndex] <= 9) {
+            rightCol = grid.rows[coord[rowIndex]].cols[coord[nextColIndex]];
         }
 
-        if (nextRowIndex <= 9) {
-            let downCol = grid.rows[nextRowIndex].cols[colIndex];
+        if (coord[nextRowIndex] <= 9) {
+            downCol = grid.rows[coord[nextRowIndex]].cols[coord[colIndex]];
         }
 
-        if (previousColIndex >= 0) {
-            let leftCol = grid.rows[rowIndex].cols[previousColIndex];
+        if (coord[previousColIndex] >= 0) {
+            leftCol = grid.rows[coord[rowIndex]].cols[coord[previousColIndex]];
         }
 
-        if ((upCol && typeof upCol.character != 'undefined') || (rightCol && typeof rightCol.character != 'undefined') || (downCol && typeof downCol.character != 'undefined') || (leftCol && typeof leftCol.character != 'undefined')) {
+        if ((upCol && upCol.character) || (rightCol && rightCol.character) || (downCol && downCol.character) || (leftCol && leftCol.character)) {
             $('#modal-bg').removeClass('hide');
         } else {
             this.move(grid);
@@ -48,45 +46,43 @@ class Character
     move(grid)
     {
         for (let i = 1; i < 4; i++) {
-            let previousRowIndex = this.row.index - i;
-            let previousColIndex = this.col.index - i;
+            let coord = getCoord(i);
 
-            let rowIndex = this.row.index;
-            let colIndex = this.col.index;
+            let upCol;
+            let rightCol;
+            let downCol;
+            let leftCol;
 
-            let nextRowIndex = this.row.index + i;
-            let nextColIndex = this.col.index + i;
-
-            if (previousRowIndex >= 0) {
-                let upCol = grid.rows[previousRowIndex].cols[colIndex];
+            if (coord[previousRowIndex] >= 0) {
+                upCol = grid.rows[coord[previousRowIndex]].cols[coord[colIndex]];
             }
 
-            if (nextColIndex <= 9) {
-                let rightCol = grid.rows[rowIndex].cols[nextColIndex];
+            if (coord[nextColIndex] <= 9) {
+                rightCol = grid.rows[coord[rowIndex]].cols[coord[nextColIndex]];
             }
 
-            if (nextRowIndex <= 9) {
-                let downCol = grid.rows[nextRowIndex].cols[colIndex];
+            if (coord[nextRowIndex] <= 9) {
+                downCol = grid.rows[coord[nextRowIndex]].cols[coord[colIndex]];
             }
 
-            if (previousColIndex >= 0) {
-                let leftCol = grid.rows[rowIndex].cols[previousColIndex];
+            if (coord[previousColIndex] >= 0) {
+                leftCol = grid.rows[coord[rowIndex]].cols[coord[previousColIndex]];
             }
 
             if (upCol && typeof upCol.character == 'undefined' && upCol.type == 'floor') {
-                $('.row-'+(previousRowIndex)+' .square-'+colIndex).addClass('highlight');
+                $('.row-'+(coord[previousRowIndex])+' .square-'+coord[colIndex]).addClass('highlight');
             }
 
             if (rightCol && typeof rightCol.character == 'undefined' && rightCol.type == 'floor') {
-                $('.row-'+rowIndex+' .square-'+(nextColIndex)).addClass('highlight');
+                $('.row-'+coord[rowIndex]+' .square-'+(coord[nextColIndex])).addClass('highlight');
             }
 
             if (downCol && typeof downCol.character == 'undefined' && downCol.type == 'floor') {
-                $('.row-'+(nextRowIndex)+' .square-'+colIndex).addClass('highlight');
+                $('.row-'+(coord[nextRowIndex])+' .square-'+coord[colIndex]).addClass('highlight');
             }
 
             if (leftCol && typeof leftCol.character == 'undefined' && leftCol.type == 'floor') {
-                $('.row-'+rowIndex+' .square-'+(previousColIndex)).addClass('highlight');
+                $('.row-'+coord[rowIndex]+' .square-'+(coord[previousColIndex])).addClass('highlight');
             }
         }
     }
@@ -99,6 +95,21 @@ class Character
     defense()
     {
 
+    }
+
+    getCoord(i)
+    {
+        let coord =
+        {
+            previousRowIndex : this.row.index - i,
+            previousColIndex : this.col.index - i,
+            rowIndex         : this.row.index,
+            colIndex         : this.col.index,
+            nextRowIndex     : this.row.index + i,
+            nextColIndex     : this.col.index + i
+        };
+
+        return coord;
     }
 
     static create(p1, p2)
