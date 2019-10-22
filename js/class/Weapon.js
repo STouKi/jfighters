@@ -2,7 +2,7 @@ class Weapon
 {
     constructor(name, attack)
     {
-        this.name = name;
+        this.name   = name;
         this.attack = attack;
     }
 

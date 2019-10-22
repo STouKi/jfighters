@@ -3,7 +3,7 @@ class Row
     constructor(index, size)
     {
         this.index = index;
-        this.cols = Col.create(size);
+        this.cols  = Col.create(size);
     }
 
     static create(size)

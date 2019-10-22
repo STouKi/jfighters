@@ -4,8 +4,8 @@ class Col
     {
         this.index = index;
         this.type = type;
-        this.character;
-        this.weapon;
+        this.character = "";
+        this.weapon = "";
     }
 
     static create(size)

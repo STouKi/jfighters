@@ -10,35 +10,42 @@ class Grid
         const oGrid = this;
 
         $.each(characters, function() {
-            const randomWall = oGrid.getRandomWall();
+            const randomFloor = oGrid.getRandomFloor();
 
-            randomWall['col'].character = this;
+            randomFloor['col'].character = this;
 
-            this.row = randomWall['row'];
-            this.col = randomWall['col'];
+            this.position =
+            {
+                x : randomFloor['col'].index,
+                y : randomFloor['row'].index
+            }
         });
     }
 
     getWeapons(weapons, nb)
     {
         for (let i = 0; i < nb; i++) {
-            const randomWall = this.getRandomWall();
-            randomWall['col'].weapon = weapons[Math.floor(Math.random()*weapons.length)];
+            const randomFloor = this.getRandomFloor();
+            randomFloor['col'].weapon = weapons[Math.floor(Math.random()*weapons.length)];
         }
     }
 
-    getRandomWall()
+    getRandomFloor()
     {
         const row = this.rows[Math.floor(Math.random()*this.rows.length)];
         const col = row.cols[Math.floor(Math.random()*row.cols.length)];
 
-        const coord =
+        const randomFloor =
         {
             row : row,
             col : col
         }
 
-        return coord;
+        if (col.type == "wall") {
+            return this.getRandomFloor();
+        } else {
+            return randomFloor;
+        }
     }
 
     generate()
@@ -46,16 +53,16 @@ class Grid
         let html = '<div id="grid">';
 
         $.each(this.rows, function() {
-            html += '<div class="row row-'+this.index+'">';
+            html += '<div data-index_row="'+this.index+'" class="row">';
 
             $.each(this.cols, function() {
-                html += '<div class="col d-flex justify-content-center align-items-center square square-'+this.index+' '+this.type+'">';
+                html += '<div data-index_col="'+this.index+'" class="col d-flex justify-content-center align-items-center square '+this.type+'">';
 
-                if (typeof this.character != 'undefined') {
+                if (this.character != "") {
                     html += '<img src="images/characters/'+this.character.color+'.svg" width="40px" />';
                 }
 
-                if (typeof this.weapon != 'undefined') {
+                if (this.weapon != "") {
                     html += '<img src="images/weapons/'+this.weapon.name+'.svg" width="40px" />';
                 }
 

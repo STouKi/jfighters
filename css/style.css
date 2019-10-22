@@ -4201,7 +4201,7 @@ img {
 }
 
 .wall {
-  background-image: url("../images/textures/wall.png");
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url("../images/textures/wall.png");
 }
 
 .floor {
@@ -4209,7 +4209,14 @@ img {
 }
 
 .highlight {
-  border: 1px solid orange;
+  cursor: pointer;
+}
+.highlight path {
+  fill: grey;
+}
+.highlight:hover path {
+  fill: black;
+  transition-duration: 0.3s;
 }
 
 /*# sourceMappingURL=style.css.map */
