@@ -26,7 +26,13 @@ class Grid
     {
         for (let i = 0; i < nb; i++) {
             const randomFloor = this.getRandomFloor();
-            randomFloor['col'].weapon = weapons[Math.floor(Math.random()*weapons.length)];
+            const weapon = weapons[Math.floor(Math.random()*weapons.length)];
+
+            if (weapon.name == 'fist') {
+                i--;
+            } else {
+                randomFloor['col'].weapon = weapon;
+            }
         }
     }
 
@@ -53,10 +59,12 @@ class Grid
         let html = '<div id="grid">';
 
         $.each(this.rows, function() {
-            html += '<div data-index_row="'+this.index+'" class="row">';
+            const indexRow = this.index;
+
+            html += '<div data-index_row="'+indexRow+'" class="row">';
 
             $.each(this.cols, function() {
-                html += '<div data-index_col="'+this.index+'" class="col d-flex justify-content-center align-items-center square '+this.type+'">';
+                html += '<div data-index_row="'+indexRow+'" data-index_col="'+this.index+'" class="col d-flex justify-content-center align-items-center square '+this.type+'">';
 
                 if (this.character != "") {
                     html += '<img src="images/characters/'+this.character.color+'.svg" width="40px" />';

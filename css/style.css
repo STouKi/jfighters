@@ -4077,6 +4077,7 @@ html {
 }
 
 .action-btn {
+  border: none;
   border-radius: 100%;
   padding: 30px;
   cursor: pointer;
@@ -4085,13 +4086,16 @@ html {
 .action-btn:hover {
   transform: rotate(15deg);
 }
-
-#attack-btn {
-  background-color: red;
+.action-btn:not(:last-child) {
+  margin-right: 10px;
 }
 
-#defense-btn {
-  background-color: blue;
+#btn-attack {
+  background-color: #910000;
+}
+
+#btn-defense {
+  background-color: #4b6988;
 }
 
 * {
@@ -4107,12 +4111,12 @@ img {
   max-width: 100%;
 }
 
-#menu {
+#menu, #menu-end {
   background-image: url("../images/textures/pow-star.png");
   min-height: 100vh;
 }
 
-#btn-play {
+#btn-play, #btn-replay {
   background-color: #080061;
   border: none;
   border-radius: 5px;
@@ -4132,7 +4136,7 @@ img {
 }
 
 #grid {
-  height: calc(100vh - 164px);
+  height: calc(100vh - 187px);
 }
 
 .p-name {
@@ -4143,6 +4147,7 @@ img {
 .health-container {
   height: 30px;
   border: 3px solid #FF4B34;
+  background-color: white;
   border-radius: 5px;
   width: 100%;
 }
@@ -4150,6 +4155,10 @@ img {
 .health-bar {
   background-color: #FF624B;
   height: 100%;
+}
+
+.hp0 {
+  width: 0%;
 }
 
 .hp10 {
