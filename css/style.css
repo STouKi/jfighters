@@ -4049,55 +4049,6 @@ html {
     margin-left: auto !important;
   }
 }
-.w-100 {
-  width: 100%;
-}
-
-.hide {
-  display: none !important;
-}
-
-#modal-bg {
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: black;
-  /* Fallback color */
-  background-color: rgba(0, 0, 0, 0.4);
-  /* Black w/ opacity */
-}
-
-#modal-box {
-  margin: 15% auto;
-  display: flex;
-  justify-content: center;
-}
-
-.action-btn {
-  border: none;
-  border-radius: 100%;
-  padding: 30px;
-  cursor: pointer;
-  transition-duration: 0.5s;
-}
-.action-btn:hover {
-  transform: rotate(15deg);
-}
-.action-btn:not(:last-child) {
-  margin-right: 10px;
-}
-
-#btn-attack {
-  background-color: #910000;
-}
-
-#btn-defense {
-  background-color: #4b6988;
-}
-
 * {
   font-family: monospace;
 }
@@ -4111,12 +4062,20 @@ img {
   max-width: 100%;
 }
 
+.w-100 {
+  width: 100%;
+}
+
+.hide {
+  display: none !important;
+}
+
 #menu, #menu-end {
   background-image: url("../images/textures/pow-star.png");
   min-height: 100vh;
 }
 
-#btn-play, #btn-replay {
+#btn-play, #btn-restart {
   background-color: #080061;
   border: none;
   border-radius: 5px;
@@ -4133,10 +4092,6 @@ img {
   height: 50px;
   padding-left: 15px;
   font-size: 20px;
-}
-
-#grid {
-  height: calc(100vh - 187px);
 }
 
 .p-name {
@@ -4157,48 +4112,8 @@ img {
   height: 100%;
 }
 
-.hp0 {
-  width: 0%;
-}
-
-.hp10 {
-  width: 10%;
-}
-
-.hp20 {
-  width: 20%;
-}
-
-.hp30 {
-  width: 30%;
-}
-
-.hp40 {
-  width: 40%;
-}
-
-.hp50 {
-  width: 50%;
-}
-
-.hp60 {
-  width: 60%;
-}
-
-.hp70 {
-  width: 70%;
-}
-
-.hp80 {
-  width: 80%;
-}
-
-.hp90 {
-  width: 90%;
-}
-
-.hp100 {
-  width: 100%;
+#grid {
+  height: calc(100vh - 187px);
 }
 
 .row {
@@ -4226,6 +4141,28 @@ img {
 .highlight:hover path {
   fill: black;
   transition-duration: 0.3s;
+}
+
+.btn-action {
+  border: none;
+  border-radius: 100%;
+  padding: 10px;
+  cursor: pointer;
+  transition-duration: 0.5s;
+}
+.btn-action:hover {
+  transform: rotate(15deg);
+}
+.btn-action:not(:last-child) {
+  margin-right: 10px;
+}
+
+#btn-attack {
+  background-color: #910000;
+}
+
+#btn-defense {
+  background-color: #4b6988;
 }
 
 /*# sourceMappingURL=style.css.map */

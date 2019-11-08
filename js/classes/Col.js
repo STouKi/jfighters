@@ -1,14 +1,15 @@
 class Col
 {
-    constructor(index, type)
+    constructor(x, type, y)
     {
-        this.index = index;
-        this.type = type;
+        this.x         = x;
+        this.y         = y;
+        this.type      = type;
         this.character = "";
-        this.weapon = "";
+        this.weapon    = "";
     }
 
-    static create(size)
+    static create(size, indexRow)
     {
         const cols = [];
 
@@ -16,9 +17,9 @@ class Col
             const randomNb = Col.getRandomNb();
 
             if (randomNb == 0) {
-                cols.push(new Col(i, 'wall'));
+                cols.push(new Col(i, 'wall', indexRow));
             } else {
-                cols.push(new Col(i, 'floor'));
+                cols.push(new Col(i, 'floor', indexRow));
             }
         }
 

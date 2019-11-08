@@ -1,66 +1,7 @@
 // IMPORT //
-@import 'bootstrap/bootstrap-grid.scss';
+@import 'bootstrap_grid/bootstrap-grid.scss';
 
 // GENERAL //
-.w-100
-{
-    width: 100%;
-}
-
-.hide
-{
-    display: none !important;
-}
-
-// MODAL
-#modal-bg
-{
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-}
-
-#modal-box
-{
-  margin: 15% auto;
-  display: flex;
-  justify-content: center;
-}
-
-.action-btn
-{
-    border: none;
-    border-radius: 100%;
-    padding: 30px;
-    cursor: pointer;
-    transition-duration: 0.5s;
-
-    &:hover
-    {
-        transform: rotate(15deg);
-    }
-
-    &:not(:last-child)
-    {
-        margin-right: 10px;
-    }
-}
-
-#btn-attack
-{
-    background-color: rgb(145, 0, 0);
-}
-
-#btn-defense
-{
-    background-color: rgb(75, 105, 136);
-}
-
 *
 {
     font-family: monospace;
@@ -77,6 +18,16 @@ img
     max-width: 100%;
 }
 
+.w-100
+{
+    width: 100%;
+}
+
+.hide
+{
+    display: none !important;
+}
+
 // MENU //
 #menu, #menu-end
 {
@@ -84,7 +35,7 @@ img
     min-height: 100vh;
 }
 
-#btn-play, #btn-replay
+#btn-play, #btn-restart
 {
     background-color: rgb(8, 0, 97);
     border: none;
@@ -103,12 +54,6 @@ img
     height: 50px;
     padding-left: 15px;
     font-size: 20px;
-}
-
-// GRID //
-#grid
-{
-    height: calc(100vh - 187px);
 }
 
 // GAMEBAR
@@ -134,59 +79,10 @@ img
     height: 100%;
 }
 
-.hp0
+// GRID //
+#grid
 {
-    width: 0%;
-}
-
-.hp10
-{
-    width: 10%;
-}
-
-.hp20
-{
-    width: 20%;
-}
-
-.hp30
-{
-    width: 30%;
-}
-
-.hp40
-{
-    width: 40%;
-}
-
-.hp50
-{
-    width: 50%;
-}
-
-.hp60
-{
-    width: 60%;
-}
-
-.hp70
-{
-    width: 70%;
-}
-
-.hp80
-{
-    width: 80%;
-}
-
-.hp90
-{
-    width: 90%;
-}
-
-.hp100
-{
-    width: 100%;
+    height: calc(100vh - 187px);
 }
 
 .row
@@ -194,7 +90,6 @@ img
     height: 10%;
 }
 
-// Game
 .square
 {
     border: 1px solid black;
@@ -224,4 +119,34 @@ img
         fill: black;
         transition-duration: 0.3s;
     }
+}
+
+// ACTION
+.btn-action
+{
+    border: none;
+    border-radius: 100%;
+    padding: 10px;
+    cursor: pointer;
+    transition-duration: 0.5s;
+
+    &:hover
+    {
+        transform: rotate(15deg);
+    }
+
+    &:not(:last-child)
+    {
+        margin-right: 10px;
+    }
+}
+
+#btn-attack
+{
+    background-color: rgb(145, 0, 0);
+}
+
+#btn-defense
+{
+    background-color: rgb(75, 105, 136);
 }

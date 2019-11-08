@@ -4,7 +4,19 @@ $('#btn-play').click(function() {
 
     const weapons = Weapon.create();
 
-    characters = Character.create($('#name-p1').val(), $('#name-p2').val(), weapons[0]);
+    let nameP1 = "Player 1";
+    let nameP2 = "Player 2";
+
+    if ($('#name-p1').val().length != 0) {
+        nameP1 = $('#name-p1').val();
+    }
+
+    if ($('#name-p2').val().length != 0) {
+        nameP2 = $('#name-p2').val();
+    }
+
+    characters = Character.create(nameP1, nameP2, weapons[0]);
+
     $('.input-menu').val('');
 
     gameBar = new GameBar(characters[0], characters[1]);
@@ -30,12 +42,12 @@ $('#game').on('click', '#btn-attack', function() {
 });
 
 $('#game').on('click', '#btn-defense', function() {
-    $('modal-bg').remove();
+    $('#modal-bg').remove();
     const charactersWithStatus = Character.getCharactersWithStatus(characters);
-    charactersWithStatus['activeCharacter'].defense(grid, characters);
+    charactersWithStatus['activeCharacter'].defense(grid, characters, gameBar);
 });
 
-$('#game').on('click', '#btn-replay', function() {
+$('#game').on('click', '#btn-restart', function() {
     $('#menu-end').remove();
     $('#menu').removeClass('hide');
 })
