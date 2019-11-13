@@ -54,24 +54,24 @@ class Grid
         }
     }
 
-    generate()
+    generate(size)
     {
         let html = '<div id="grid">';
 
         $.each(this.rows, function() {
             const indexRow = this.index;
 
-            html += '<div data-index_row="'+indexRow+'" class="row">';
+            html += '<div data-index_row="'+indexRow+'" class="row" style="height:'+100 / size+'%">';
 
             $.each(this.cols, function() {
                 html += '<div data-index_row="'+indexRow+'" data-index_col="'+this.x+'" class="col d-flex justify-content-center align-items-center square '+this.type+'">';
 
                 if (this.character != "") {
-                    html += '<img src="images/characters/'+this.character.color+'/'+this.character.color+'.svg" alt="Personnage '+this.character.color+'" width="40px" />';
+                    html += '<img src="images/characters/'+this.character.color+'/'+this.character.color+'.svg" alt="Personnage '+this.character.color+'" width="30%" />';
                 }
 
                 if (this.weapon != "") {
-                    html += '<img src="images/weapons/'+this.weapon.name+'.svg" alt="'+this.weapon.name+'" width="40px" />';
+                    html += '<img src="images/weapons/'+this.weapon.name+'.svg" alt="'+this.weapon.name+'" width="30%" />';
                 }
 
                 html += '</div>';

@@ -15,6 +15,8 @@ $('#btn-play').click(function() {
         nameP2 = $('#name-p2').val();
     }
 
+    const size = $('input[type=radio][name=map-size]:checked').val();
+
     characters = Character.create(nameP1, nameP2, weapons[0]);
 
     $('.input-menu').val('');
@@ -22,10 +24,10 @@ $('#btn-play').click(function() {
     gameBar = new GameBar(characters[0], characters[1]);
     gameBar.generate();
 
-    grid = new Grid(10);
+    grid = new Grid(size);
     grid.getCharacters(characters);
     grid.getWeapons(weapons, 4);
-    grid.generate();
+    grid.generate(size);
 
     characters[0].chooseAction(grid);
 });

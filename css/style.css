@@ -4094,6 +4094,10 @@ img {
   font-size: 20px;
 }
 
+label {
+  cursor: pointer;
+}
+
 .p-name {
   font-weight: bold;
   font-size: 20px;
@@ -4114,10 +4118,6 @@ img {
 
 #grid {
   height: calc(100vh - 187px);
-}
-
-.row {
-  height: 10%;
 }
 
 .square {

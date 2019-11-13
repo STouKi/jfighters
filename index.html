@@ -16,12 +16,36 @@
 
                 <div class="d-flex align-items-center mb-3">
                     <img src="images/characters/blue/blue.svg" alt="Personnage bleu" width="100px" class="mr-3">
-                    <input type="text" placeholder="Player 1" id="name-p1" class="input-menu w-100">
+                    <input type="text" placeholder="Player 1" id="name-p1" class="input-menu w-100" />
                 </div>
 
                 <div class="d-flex align-items-center mb-3">
                     <img src="images/characters/red/red.svg" alt="Personnage rouge" width="100px" class="mr-3">
-                    <input type="text" placeholder="Player 2" id="name-p2" class="input-menu w-100">
+                    <input type="text" placeholder="Player 2" id="name-p2" class="input-menu w-100" />
+                </div>
+
+                <div class="mb-3">
+                    <h2>Map size</h2>
+
+                    <div class="d-flex justify-content-between align-items-center">
+                        <label class="d-flex align-items-center">
+                            <input type="radio" name="map-size" id="little-map" value="10" checked>
+                                <img src="images/little-map.png" alt="Image d'un petit plateau de jeu" class="ml-3" />
+                            </input>
+                        </label>
+
+                        <label class="d-flex align-items-center">
+                            <input type="radio" name="map-size" id="medium-map" value="15">
+                                <img src="images/medium-map.png" alt="Image d'un moyen plateau de jeu" class="ml-3" />
+                            </input>
+                        </label>
+
+                        <label class="d-flex align-items-center">
+                            <input type="radio" name="map-size" id="big-map" value="20">
+                                <img src="images/big-map.png" alt="Image d'un grand plateau de jeu" class="ml-3" />
+                            </input>
+                        </label>
+                    </div>
                 </div>
 
                 <button type="button" id="btn-play">PLAY</button>
